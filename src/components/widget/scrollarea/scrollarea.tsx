@@ -11,7 +11,7 @@ export const ScrollArea = React.forwardRef<
     <div
       ref={ref}
       className={cx(
-        'scrollbar-thin scrollbar-thumb-base-800 scrollbar-track-base-400 scrollbar-corner-base-600 overflow-auto',
+        'scrollbar-thin scrollbar-thumb-base-800 scrollbar-track-base-400 scrollbar-corner-base-600 overflow-auto max-h-[100%]',
         className
       )}
     >
