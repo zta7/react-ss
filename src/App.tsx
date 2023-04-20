@@ -1,3 +1,4 @@
+import { Button } from 'components/widget/button'
 import { ScrollArea } from 'components/widget/scrollarea'
 
 function App() {
@@ -8,13 +9,7 @@ function App() {
       className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
       id="app"
     >
-      <ScrollArea>
-        {arr.map((e) => (
-          <a key={e.id} href={`#${e.id}`}>
-            {e.id}
-          </a>
-        ))}
-      </ScrollArea>
+      <Button>123</Button>
     </div>
   )
 }
