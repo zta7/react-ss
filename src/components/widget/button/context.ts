@@ -1,9 +1,6 @@
 import { createContext } from 'hooks/context'
 
-export interface ButtonContextValue {
-  isDisabled?: boolean
-  isLoading?: boolean
-}
+export interface ButtonContextValue {}
 
 export const [ButtonProvider, useButton] =
   createContext<ButtonContextValue>('ButtonRoot')

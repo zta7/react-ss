@@ -6,45 +6,49 @@ import {
 } from 'components/widget/button/context'
 import { HTMLAttributes, ReactNode, forwardRef, useState } from 'react'
 
-const button = cva('button', {
+const button = cva('', {
   variants: {
     square: {
       true: 'rounded-none',
       false: 'rounded'
     },
     color: {
-      base: 'hover:bg-base-200 [&:active:not(:has(button:active))]:bg-base-300',
+      base: 'hover:enabled:bg-base-200 [&:active:enabled:not(:has(button:active))]:bg-base-300',
       deeper:
-        'hover:bg-base-300 [&:active:not(:has(button:active))]:bg-base-400'
+        'hover:enabled:bg-base-300 [&:active:enabled:not(:has(button:active))]:bg-base-400'
+    },
+    isDisabled: {
+      true: 'cursor-not-allowed',
+      false: 'cursor-pointer'
     }
   },
   defaultVariants: {
     square: false,
-    color: 'base'
+    color: 'base',
+    isDisabled: false
   }
 })
 
-type Raw = Omit<HTMLAttributes<HTMLDivElement>, 'color'> & {
+type Raw = Omit<HTMLAttributes<HTMLButtonElement>, 'color'> & {
   children: ReactNode
 }
 type Style = VariantProps<typeof button>
-type Behavior = ButtonContextValue
 
-export interface ButtonProps extends Raw, Style, Behavior {}
+export interface ButtonProps extends Raw, Style {}
 
-export const Button = forwardRef<HTMLDivElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, forwardRef) => {
-    const { square, color, isDisabled, isLoading, className, ...rest } = props
-
+    const { square, color, isDisabled, className, ...rest } = props
+    const disabled = Boolean(isDisabled)
     return (
-      <ButtonProvider isDisabled={isDisabled} isLoading={isLoading}>
-        <div
+      <ButtonProvider>
+        <button
           ref={forwardRef}
-          role="button"
-          aria-disabled={isDisabled || isLoading}
-          className={cx(button({ square, color }), className)}
+          aria-disabled={disabled}
+          disabled={disabled}
+          className={cx(button({ square, color, isDisabled }), className)}
           {...rest}
-        ></div>
+        ></button>
       </ButtonProvider>
     )
   }

@@ -1,4 +1,5 @@
 import { Button } from 'components/widget/button'
+import { ButtonLoading } from 'components/widget/button/button-loading'
 import { ScrollArea } from 'components/widget/scrollarea'
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
       className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
       id="app"
     >
-      <Button>123</Button>
+      <Button>
+        <ButtonLoading>123</ButtonLoading>
+      </Button>
     </div>
   )
 }
