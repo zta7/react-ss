@@ -1,10 +1,5 @@
 import { cva, type VariantProps, cx } from 'class-variance-authority'
-import {
-  ButtonContextValue,
-  ButtonProvider,
-  useButton
-} from 'components/widget/button/context'
-import { HTMLAttributes, ReactNode, forwardRef, useState } from 'react'
+import { HTMLAttributes, ReactNode, forwardRef } from 'react'
 
 const button = cva('', {
   variants: {
@@ -17,19 +12,19 @@ const button = cva('', {
       deeper:
         'hover:enabled:bg-base-300 [&:active:enabled:not(:has(button:active))]:bg-base-400'
     },
-    isDisabled: {
-      true: 'cursor-not-allowed',
+    disabled: {
+      true: 'cursor-not-allowed opacity-50',
       false: 'cursor-pointer'
     }
   },
   defaultVariants: {
     square: false,
     color: 'base',
-    isDisabled: false
+    disabled: false
   }
 })
 
-type Raw = Omit<HTMLAttributes<HTMLButtonElement>, 'color'> & {
+type Raw = Omit<HTMLAttributes<HTMLButtonElement>, 'color' | 'disabled'> & {
   children: ReactNode
 }
 type Style = VariantProps<typeof button>
@@ -38,18 +33,16 @@ export interface ButtonProps extends Raw, Style {}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, forwardRef) => {
-    const { square, color, isDisabled, className, ...rest } = props
-    const disabled = Boolean(isDisabled)
+    const { square, color, disabled, className, ...rest } = props
+    // const disabled = Boolean(disabled)
     return (
-      <ButtonProvider>
-        <button
-          ref={forwardRef}
-          aria-disabled={disabled}
-          disabled={disabled}
-          className={cx(button({ square, color, isDisabled }), className)}
-          {...rest}
-        ></button>
-      </ButtonProvider>
+      <button
+        ref={forwardRef}
+        aria-disabled={Boolean(disabled)}
+        disabled={Boolean(disabled)}
+        className={cx(button({ square, color, disabled }), className)}
+        {...rest}
+      ></button>
     )
   }
 )

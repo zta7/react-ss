@@ -13,15 +13,7 @@ function App() {
       className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
       id="app"
     >
-      <Hooks></Hooks>
-      <Collection>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-      </Collection>
+      <Button>123</Button>
     </div>
   )
 }
