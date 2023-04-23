@@ -34,7 +34,6 @@ export interface ButtonProps extends Raw, Style {}
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, forwardRef) => {
     const { square, color, disabled, className, ...rest } = props
-    // const disabled = Boolean(disabled)
     return (
       <button
         ref={forwardRef}

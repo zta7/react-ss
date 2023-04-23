@@ -1,1 +1,1 @@
-export { createContext } from 'hooks/context/createContext'
+export { createContext } from 'hooks/context/create-context'
