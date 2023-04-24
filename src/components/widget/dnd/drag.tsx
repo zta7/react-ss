@@ -1,30 +1,51 @@
 import { useSpring, animated, SpringConfig } from '@react-spring/web'
 import { useDrag, DragConfig } from '@use-gesture/react'
-import { HTMLAttributes, ReactNode, forwardRef, useState } from 'react'
+import { useDraggable } from 'components/widget/dnd/dnd-context'
+import { useComposedRefs } from 'hooks/use-compose-refs'
+import {
+  HTMLAttributes,
+  ReactNode,
+  forwardRef,
+  useEffect,
+  useState
+} from 'react'
 
-export const Drag = forwardRef<
-  HTMLDivElement,
-  DragConfig & { children: ReactNode }
->((props, forwardRef) => {
-  const { children, ...config } = props
-  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }))
-  const [dragging, setDragging] = useState(false)
+export const Drag = forwardRef<HTMLElement, { children: ReactNode }>(
+  (props, forwardRef) => {
+    const { children, ...config } = props
+    const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }))
 
-  const dragBind = useDrag(({ movement: [mx, my], dragging, last }) => {
-    setDragging(Boolean(dragging))
-    api.start({ x: !last ? mx : 0, y: !last ? my : 0 })
-  }, config)
+    const { attributes, listeners, setNodeRef, transform, isDragging } =
+      useDraggable({
+        id: 'draggable',
+        data: {
+          supports: ['type1', 'type2']
+        }
+      })
 
-  return (
-    <animated.div
-      {...dragBind()}
-      className={`touch-none ${dragging ? 'cursor-grab' : 'cursor-grabbing'}`}
-      style={{ x, y }}
-      ref={forwardRef}
-    >
-      {children}
-    </animated.div>
-  )
-})
+    useEffect(() => {
+      api.start({
+        x: transform ? transform.x : 0,
+        y: transform ? transform.y : 0
+      })
+    }, [transform, api])
+
+    const ref = useComposedRefs(forwardRef, setNodeRef)
+
+    return (
+      <animated.div
+        className={`touch-none ${
+          isDragging ? 'cursor-grab' : 'cursor-grabbing'
+        }`}
+        style={{ x, y }}
+        ref={setNodeRef}
+        {...listeners}
+        {...attributes}
+      >
+        {children}
+      </animated.div>
+    )
+  }
+)
 
 Drag.displayName = 'Drag'
