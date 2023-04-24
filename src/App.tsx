@@ -5,6 +5,7 @@ import { HStack, VStack } from 'components/widget/stack'
 import { Collection } from 'components/widget/collection/collection'
 import { Hooks } from 'tips/Hooks'
 import { Drag } from 'components/widget/dnd/drag'
+import { DndProvider } from 'components/widget/dnd/dnd-context'
 
 function App() {
   const arr = Array.from({ length: 100 }, (e, i) => ({ id: i }))
@@ -14,7 +15,9 @@ function App() {
       className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
       id="app"
     >
-      <Drag>drag me</Drag>
+      <DndProvider>
+        <Drag>drag me</Drag>
+      </DndProvider>
     </div>
   )
 }

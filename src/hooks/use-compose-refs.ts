@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useCallback } from 'react'
 
 type PossibleRef<T> = React.Ref<T> | undefined
 
@@ -28,7 +28,7 @@ function composeRefs<T>(...refs: PossibleRef<T>[]) {
  */
 function useComposedRefs<T>(...refs: PossibleRef<T>[]) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  return React.useCallback(composeRefs(...refs), refs)
+  return useCallback(composeRefs(...refs), refs)
 }
 
 export { composeRefs, useComposedRefs }
