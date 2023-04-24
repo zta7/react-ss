@@ -4,7 +4,7 @@ import { ScrollArea } from 'components/widget/scrollarea'
 import { HStack, VStack } from 'components/widget/stack'
 import { Collection } from 'components/widget/collection/collection'
 import { Hooks } from 'tips/Hooks'
-import { Drag } from 'components/widget/drag/Drag'
+import { Drag } from 'components/widget/dnd/drag'
 
 function App() {
   const arr = Array.from({ length: 100 }, (e, i) => ({ id: i }))
