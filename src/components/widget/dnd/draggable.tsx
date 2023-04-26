@@ -2,22 +2,21 @@ import { useSpring, animated, SpringConfig } from '@react-spring/web'
 import { useDrag, DragConfig } from '@use-gesture/react'
 import { useDraggable } from 'components/widget/dnd/dnd-context'
 import { useComposedRefs } from 'hooks/use-compose-refs'
-import {
-  HTMLAttributes,
-  ReactNode,
-  forwardRef,
-  useEffect,
-  useState
-} from 'react'
+import { ReactNode, forwardRef, useEffect } from 'react'
 
-export const Drag = forwardRef<HTMLElement, { children: ReactNode }>(
+interface DraggableProps {
+  id: string
+  children: ReactNode
+}
+
+export const Draggable = forwardRef<HTMLDivElement, DraggableProps>(
   (props, forwardRef) => {
-    const { children, ...config } = props
+    const { children, id } = props
     const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }))
 
     const { attributes, listeners, setNodeRef, transform, isDragging } =
       useDraggable({
-        id: 'draggable',
+        id,
         data: {
           supports: ['type1', 'type2']
         }
@@ -30,7 +29,7 @@ export const Drag = forwardRef<HTMLElement, { children: ReactNode }>(
       })
     }, [transform, api])
 
-    const ref = useComposedRefs(forwardRef, setNodeRef)
+    const ref = useComposedRefs<HTMLDivElement>(forwardRef, setNodeRef)
 
     return (
       <animated.div
@@ -38,7 +37,7 @@ export const Drag = forwardRef<HTMLElement, { children: ReactNode }>(
           isDragging ? 'cursor-grab' : 'cursor-grabbing'
         }`}
         style={{ x, y }}
-        ref={setNodeRef}
+        ref={ref}
         {...listeners}
         {...attributes}
       >
@@ -48,4 +47,4 @@ export const Drag = forwardRef<HTMLElement, { children: ReactNode }>(
   }
 )
 
-Drag.displayName = 'Drag'
+Draggable.displayName = 'Draggable'
