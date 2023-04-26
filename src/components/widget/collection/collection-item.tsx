@@ -1,7 +1,11 @@
 import { useCollection } from 'components/widget/collection/collection-context'
-import { useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 
-export const CollectionItem = () => {
+export interface CollectionItemProps {
+  children: ReactNode
+}
+
+export const CollectionItem = ({ children }: CollectionItemProps) => {
   const context = useCollection('CollectionItem')
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -10,5 +14,5 @@ export const CollectionItem = () => {
       context.items.delete(ref)
     }
   })
-  return <div ref={ref}>123</div>
+  return <div ref={ref}>{children}</div>
 }
