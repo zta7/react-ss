@@ -1,14 +1,13 @@
-import { Sortable } from 'components/widget/dnd/sortable'
+import { useMeasure } from 'hooks/use-measure'
 
 function App() {
-  const arr = Array.from({ length: 20 }, (e, i) => ({ id: `${i}` }))
-
+  const { ref } = useMeasure()
   return (
     <div
       className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
       id="app"
     >
-      <Sortable></Sortable>
+      <div ref={ref}>123</div>
     </div>
   )
 }
