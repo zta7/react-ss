@@ -1,9 +1,23 @@
 import { useMemo } from 'react'
 import { useLayoutEffect, useState } from 'react'
 
-export const useMeasure = () => {
-  const [element, ref] = useState<Element | null>(null)
-  const [rect, setRect] = useState()
+export type UseMeasureRect = Omit<DOMRectReadOnly, 'toJSON'>
+
+const defaultState: UseMeasureRect = {
+  x: 0,
+  y: 0,
+  width: 0,
+  height: 0,
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0
+}
+
+export function useMeasure<E extends Element = Element>() {
+  const [element, ref] = useState<E | null>()
+  const [rect, setRect] = useState<UseMeasureRect>(defaultState)
+
   const observer = useMemo(
     () =>
       new ResizeObserver((entries) => {
@@ -15,11 +29,12 @@ export const useMeasure = () => {
       }),
     []
   )
-  // useLayoutEffect(() => {
-  //   if(element) {
+  useLayoutEffect(() => {
+    if (element) {
+      observer.observe(element)
+    }
+    return () => void observer.disconnect()
+  }, [element, observer])
 
-  //   }
-  // }, [element])
-
-  return { ref }
+  return [ref, rect] as const
 }
