@@ -1,7 +1,6 @@
-import { cva, type VariantProps, cx } from 'class-variance-authority'
-import { HTMLAttributes, ReactNode, forwardRef } from 'react'
+import { classed } from '@tw-classed/react'
 
-export const card = cva('', {
+export const Card = classed.div('', {
   variants: {
     square: {
       true: 'rounded-none',
@@ -22,18 +21,3 @@ export const card = cva('', {
     shadow: 'md'
   }
 })
-export type cardStyle = VariantProps<typeof card>
-type Props = cardStyle & HTMLAttributes<HTMLDivElement>
-
-export const Card = forwardRef<HTMLDivElement, Props>((props, forwardRef) => {
-  const { square, shadow, bordered, className, ...rest } = props
-  return (
-    <div
-      ref={forwardRef}
-      className={cx(card({ square, shadow, bordered }), className)}
-      {...rest}
-    ></div>
-  )
-})
-
-Card.displayName = 'Card'

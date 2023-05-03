@@ -1,10 +1,5 @@
-import { HTMLAttributes, forwardRef } from 'react'
+import { classed } from '@tw-classed/react'
+import * as LabelPrimitive from '@radix-ui/react-label'
+import { Text } from 'components/widget/text'
 
-export const Label = forwardRef<
-  HTMLLabelElement,
-  HTMLAttributes<HTMLLabelElement>
->((props, forwardRef) => {
-  return <label {...props} ref={forwardRef}></label>
-})
-
-Label.displayName = 'Label'
+export const Label = classed.label(LabelPrimitive.Root, '', Text)
