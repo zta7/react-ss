@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { classed, VariantProps } from '@tw-classed/react'
 
-export const stack = cva('', {
+export const Stack = classed.div('', {
   variants: {
-    direction: {
-      row: 'flex flex-row',
-      col: 'flex flex-col'
+    orientation: {
+      horizontal: 'flex flex-row',
+      vertical: 'flex flex-col'
     },
     align: {
       start: 'items-start',
@@ -24,7 +24,7 @@ export const stack = cva('', {
       true: 'flex-wrap',
       false: 'flex-nowrap'
     },
-    spacing: {
+    gap: {
       xs: 'gap-[1px]',
       sm: '',
       md: '',
@@ -33,17 +33,15 @@ export const stack = cva('', {
     }
   },
   defaultVariants: {
-    direction: 'row',
+    orientation: 'horizontal',
     align: 'center',
     justify: 'center',
     wrap: false
   }
 })
 
-export type StackProps = VariantProps<typeof stack> & { children: ReactNode }
+export type StackProps = VariantProps<typeof Stack> & { children: ReactNode }
 
-export const Stack = ({ children, ...style }: StackProps) => {
-  return <div className={stack(style)}>{children}</div>
-}
-
-Stack.displayname = 'Stack'
+// export const Stack = ({ children, ...style }: StackProps) => {
+//   return <div className={stack(style)}>{children}</div>
+// }

@@ -1,9 +1,9 @@
-import { stack, type StackProps } from 'components/widget/stack/stack'
+import { Stack, type StackProps } from 'components/widget/stack/stack'
 
-type HStackProps = Omit<StackProps, 'direction'>
+type HStackProps = Omit<StackProps, 'orientation'>
 
-export const HStack = ({ children, ...style }: HStackProps) => {
-  return <div className={stack({ direction: 'row', ...style })}>{children}</div>
+export const HStack = (props: HStackProps) => {
+  return <Stack orientation="horizontal" {...props}></Stack>
 }
 
 HStack.displayname = 'HStack'

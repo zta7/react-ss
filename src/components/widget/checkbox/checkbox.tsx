@@ -16,8 +16,7 @@ const ClassedCheckbox = classed(CheckboxPrimitive.Root, ' border', {
 })
 const ClassedIndicator = classed(CheckboxPrimitive.Indicator)
 
-type CheckboxProps = VariantProps<typeof ClassedCheckbox> &
-  ComponentProps<typeof CheckboxPrimitive.Root>
+type CheckboxProps = ComponentProps<typeof ClassedCheckbox>
 
 export const Checkbox = forwardRef<
   ElementRef<typeof ClassedCheckbox>,
