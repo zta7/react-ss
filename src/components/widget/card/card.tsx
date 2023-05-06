@@ -8,9 +8,7 @@ export const Card = classed.div('', {
     },
     shadow: {
       none: 'shadow-none',
-      sm: 'shadow-sm',
-      md: 'shadow-md',
-      xl: 'shadow-xl'
+      md: 'shadow-[rgba(0,0,0,0.05)_0px_0px_0px_1px,rgba(0,0,0,0.1)_0px_3px_6px,rgba(0,0,0,0.2)_0px_3px_8px] shadow-base-500'
     },
     bordered: {
       true: 'border'

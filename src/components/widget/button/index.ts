@@ -1,1 +1,2 @@
-export { Button } from 'components/widget/button/button'
+export { Button } from './button'
+export { IconButton } from './icon-button'

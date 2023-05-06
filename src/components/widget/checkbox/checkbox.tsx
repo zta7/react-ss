@@ -1,5 +1,5 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { classed, VariantProps } from '@tw-classed/react'
+import { classed } from '@tw-classed/react'
 import { ElementRef, forwardRef, ComponentProps } from 'react'
 import { CheckIcon } from '@heroicons/react/24/solid'
 
