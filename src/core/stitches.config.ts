@@ -218,38 +218,14 @@ export const {
       9: '80px'
     },
     sizes: {
-      1: '5px',
-      2: '10px',
-      3: '15px',
-      4: '20px',
-      5: '25px',
-      6: '35px',
-      7: '45px',
-      8: '65px',
-      9: '80px'
+      ...Array.from({ length: 20 }, (e, i) => `${(i + 1) * 0.125}rem`).reduce(
+        (acc, cur, i) => {
+          acc[i + 1] = cur
+          return acc
+        },
+        {} as any
+      )
     },
-    // space: {
-    //   1: '4px',
-    //   2: '8px',
-    //   3: '16px',
-    //   4: '20px',
-    //   5: '24px',
-    //   6: '32px',
-    //   7: '48px',
-    //   8: '64px',
-    //   9: '80px',
-    // },
-    // sizes: {
-    //   1: '4px',
-    //   2: '8px',
-    //   3: '16px',
-    //   4: '20px',
-    //   5: '24px',
-    //   6: '32px',
-    //   7: '48px',
-    //   8: '64px',
-    //   9: '80px',
-    // },
     fontSizes: {
       1: '12px',
       2: '13px',
@@ -261,22 +237,11 @@ export const {
       8: '35px',
       9: '59px'
     },
-    // fontSizes: {
-    //   1: '11px',
-    //   2: '12px',
-    //   3: '15px',
-    //   4: '17px',
-    //   5: '20px',
-    //   6: '22px',
-    //   7: '28px',
-    //   8: '36px',
-    //   9: '60px',
-    // },
     radii: {
-      1: '4px',
-      2: '6px',
-      3: '8px',
-      4: '12px',
+      1: '0.125rem',
+      2: '0.250rem',
+      3: '0.375rem',
+      4: '0.500rem',
       round: '50%',
       pill: '9999px'
     },
@@ -299,6 +264,9 @@ export const {
     light: '(prefers-color-scheme: light)'
   },
   utils: {
+    w: (value: Stitches.PropertyValue<'width'>) => ({
+      width: value
+    }),
     p: (value: Stitches.PropertyValue<'padding'>) => ({
       padding: value
     }),

@@ -15,6 +15,7 @@ import { Text } from 'components/widget/text'
 import { useState } from 'react'
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { Kbd } from 'components/widget/kdb'
+import { Switch } from 'components/widget/switch'
 
 function App() {
   // const [ref, rect] = useMeasure()
@@ -43,9 +44,10 @@ function App() {
         <TabsContent value="1">C</TabsContent>
         <TabsContent value="2">DDDDDDD</TabsContent>
       </Tabs>
-      <IconButton state="waiting">
+      <IconButton>
         <BeakerIcon />
       </IconButton>
+      <Switch />
     </div>
   )
 }
