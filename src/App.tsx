@@ -3,7 +3,6 @@ import { Button, IconButton } from 'components/widget/button'
 import { Checkbox } from 'components/widget/checkbox'
 import { Label } from 'components/widget/label'
 import { Separator } from 'components/widget/separator'
-import { HStack } from 'components/widget/stack'
 import {
   Tabs,
   TabsContent,
@@ -13,29 +12,39 @@ import {
 import { Text } from 'components/widget/text'
 // import { useMeasure } from 'hooks/use-measure'
 import { useState } from 'react'
-import { BeakerIcon } from '@heroicons/react/24/solid'
-import { Kbd } from 'components/widget/kdb'
+import { BeakerIcon, SunIcon } from '@heroicons/react/24/solid'
 import { Switch } from 'components/widget/switch'
+import { Dialog, DialogContent, DialogTrigger } from 'components/widget/dialog'
+import { DialogTitle } from 'components/widget/dialog'
+import { DialogDescription } from 'components/widget/dialog'
+import { ThemeButton } from 'components/compose/ThemeButton'
+import { Card } from 'components/widget/card'
+import { Flex } from 'components/widget/flex'
 
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
   return (
-    <div
-      className="text-base-600 h-screen w-screen select-none overflow-hidden text-sm"
-      id="app"
+    <Box
+      css={{
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        backgroundColor: '$base1',
+        color: '$base12'
+      }}
     >
-      <HStack>
-        <HStack>
+      <Flex>
+        <Flex>
           <Checkbox id="1" />
           <Label htmlFor="1">123</Label>
-        </HStack>
+        </Flex>
         <Separator orientation="vertical" />
-        <HStack>
+        <Flex>
           <Checkbox id="2" />
           <Label htmlFor="2">123</Label>
-        </HStack>
-      </HStack>
+        </Flex>
+      </Flex>
       <Tabs>
         <TabsList>
           <TabsTrigger value="1">1</TabsTrigger>
@@ -48,7 +57,16 @@ function App() {
         <BeakerIcon />
       </IconButton>
       <Switch />
-    </div>
+      <Dialog>
+        <DialogTrigger>Dialog Trigger</DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Title</DialogTitle>
+          <DialogDescription>~~~</DialogDescription>
+        </DialogContent>
+      </Dialog>
+      <ThemeButton />
+      <Button>Button</Button>
+    </Box>
   )
 }
 

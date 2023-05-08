@@ -1,3 +1,3 @@
-import { classed } from '@tw-classed/react'
+import { styled } from 'core/stitches.config'
 
-export const Box = classed.div('')
+export const Box = styled('div', {})

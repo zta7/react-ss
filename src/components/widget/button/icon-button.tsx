@@ -7,9 +7,9 @@ export const IconButton = styled('button', {
     size: {
       '1': {
         borderRadius: '$2',
-        height: '$10',
-        width: '$10',
-        p: '2px'
+        height: '$16',
+        width: '$16',
+        p: '$sizes$2'
       }
     },
     variant: {
@@ -18,21 +18,21 @@ export const IconButton = styled('button', {
         borderWidth: '0',
         '@hover': {
           '&:hover': {
-            backgroundColor: '$slateA3'
+            backgroundColor: '$baseA3'
           }
         },
         '&:active': {
-          backgroundColor: '$slateA5'
+          backgroundColor: '$baseA5'
         },
         '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
           {
-            backgroundColor: '$slateA5'
+            backgroundColor: '$baseA5'
           }
       }
     },
     state: {
       active: {
-        backgroundColor: '$slate4',
+        backgroundColor: '$base4',
         boxShadow: 'inset 0 0 0 1px hsl(206,10%,76%)',
         '@hover': {
           '&:hover': {
@@ -40,7 +40,7 @@ export const IconButton = styled('button', {
           }
         },
         '&:active': {
-          backgroundColor: '$slate4'
+          backgroundColor: '$base4'
         }
       }
     }

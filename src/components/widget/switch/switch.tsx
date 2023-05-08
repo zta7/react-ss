@@ -1,6 +1,6 @@
 import { styled, VariantProps, CSS } from 'core/stitches.config'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { ElementRef, forwardRef } from 'react'
+import { ElementRef, forwardRef, ComponentProps } from 'react'
 
 export const StyledThumb = styled(SwitchPrimitive.Thumb, {
   position: 'absolute',
@@ -20,13 +20,13 @@ export const StyledSwitch = styled(SwitchPrimitive.Root, {
   variants: {
     size: {
       '1': {
-        width: '$10',
-        height: '$6',
-        borderRadius: '$sizes$6',
+        width: '$14',
+        height: '$8',
+        borderRadius: '$sizes$8',
         [`& ${StyledThumb}`]: {
-          width: 'calc($6 - $1)',
-          height: 'calc($6 - $1)',
-          borderRadius: 'calc($sizes$6 - $1)',
+          width: 'calc($8 - $1)',
+          height: 'calc($8 - $1)',
+          borderRadius: 'calc($sizes$8 - $1)',
           left: '1px',
           top: '1px',
           '&[data-state="checked"]': {
@@ -36,7 +36,7 @@ export const StyledSwitch = styled(SwitchPrimitive.Root, {
         },
         '&:active': {
           [`& ${StyledThumb}`]: {
-            width: 'calc($6 - $1 + $2)'
+            width: 'calc($8 - $1 + $2)'
           }
         }
       }
@@ -48,7 +48,7 @@ export const StyledSwitch = styled(SwitchPrimitive.Root, {
 })
 
 type SwitchVariants = VariantProps<typeof StyledSwitch>
-type SwitchPrimitiveProps = React.ComponentProps<typeof SwitchPrimitive.Root>
+type SwitchPrimitiveProps = ComponentProps<typeof SwitchPrimitive.Root>
 type SwitchProps = SwitchPrimitiveProps & SwitchVariants & { css?: CSS }
 
 export const Switch = forwardRef<ElementRef<typeof StyledSwitch>, SwitchProps>(

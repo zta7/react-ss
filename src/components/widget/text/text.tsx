@@ -1,14 +1,14 @@
-import { classed } from '@tw-classed/react'
+import { styled } from 'core/stitches.config'
 
-export const Text = classed.span('font-normal m-0 inline-block', {
-  variants: {
-    size: {
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'text-lg'
-    }
-  },
-  defaultVariants: {
-    size: 'sm'
-  }
+export const Text = styled('span', {
+  // variants: {
+  //   size: {
+  //     sm: 'text-sm',
+  //     md: 'text-base',
+  //     lg: 'text-lg'
+  //   }
+  // },
+  // defaultVariants: {
+  //   size: 'sm'
+  // }
 })

@@ -1,17 +1,28 @@
-import { classed } from '@tw-classed/react'
+import { styled } from 'core/stitches.config'
 
-export const Card = classed.div('', {
+export const Card = styled('div', {
+  backgroundColor: '$base1',
+  color: '$base12',
   variants: {
     square: {
-      true: 'rounded-none',
-      false: 'rounded'
+      true: {
+        borderRadius: '$0'
+      },
+      false: {
+        borderRadius: '$2'
+      }
     },
     shadow: {
-      none: 'shadow-none',
-      md: 'shadow-[rgba(0,0,0,0.05)_0px_0px_0px_1px,rgba(0,0,0,0.1)_0px_3px_6px,rgba(0,0,0,0.2)_0px_3px_8px] shadow-base-500'
-    },
-    bordered: {
-      true: 'border'
+      none: {
+        boxShadow: 'none'
+      },
+      md: {
+        boxShadow: `
+         rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, 
+         rgba(15, 15, 15, 0.1) 0px 5px 10px, 
+         rgba(15, 15, 15, 0.2) 0px 15px 40px;
+        `
+      }
     }
   },
   defaultVariants: {

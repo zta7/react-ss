@@ -193,6 +193,32 @@ export const {
       ...blackA,
 
       // Semantic colors
+      base1: '$slate1',
+      base2: '$slate2',
+      base3: '$slate3',
+      base4: '$slate4',
+      base5: '$slate5',
+      base6: '$slate6',
+      base7: '$slate7',
+      base8: '$slate8',
+      base9: '$slate9',
+      base10: '$slate10',
+      base11: '$slate11',
+      base12: '$slate12',
+
+      baseA1: '$slateA1',
+      baseA2: '$slateA2',
+      baseA3: '$slateA3',
+      baseA4: '$slateA4',
+      baseA5: '$slateA5',
+      baseA6: '$slateA6',
+      baseA7: '$slateA7',
+      baseA8: '$slateA8',
+      baseA9: '$slateA9',
+      baseA10: '$slateA10',
+      baseA11: '$slateA11',
+      baseA12: '$slateA12',
+
       hiContrast: '$slate12',
       // loContrast: '$slate1',
       loContrast: 'white',
@@ -207,15 +233,13 @@ export const {
       mono: 'Söhne Mono, menlo, monospace'
     },
     space: {
-      1: '5px',
-      2: '10px',
-      3: '15px',
-      4: '20px',
-      5: '25px',
-      6: '35px',
-      7: '45px',
-      8: '65px',
-      9: '80px'
+      ...Array.from({ length: 20 }, (e, i) => `${(i + 1) * 0.125}rem`).reduce(
+        (acc, cur, i) => {
+          acc[i + 1] = cur
+          return acc
+        },
+        {} as any
+      )
     },
     sizes: {
       ...Array.from({ length: 20 }, (e, i) => `${(i + 1) * 0.125}rem`).reduce(
@@ -238,6 +262,7 @@ export const {
       9: '59px'
     },
     radii: {
+      0: '0px',
       1: '0.125rem',
       2: '0.250rem',
       3: '0.375rem',
@@ -251,6 +276,11 @@ export const {
       3: '300',
       4: '400',
       max: '999'
+    },
+    borderWidths: {
+      0: '0px',
+      1: '1px',
+      2: '2px'
     }
   },
   media: {
@@ -456,15 +486,27 @@ export const darkTheme = createTheme('dark-theme', {
     ...orangeDarkA,
     ...brownDarkA,
     ...bronzeDarkA,
-    ...goldDarkA,
+    ...goldDarkA
 
     // Semantic colors
-    hiContrast: '$slate12',
-    loContrast: '$slate1',
-    canvas: 'hsl(0 0% 15%)',
-    panel: '$slate3',
-    transparentPanel: 'hsl(0 100% 100% / 97%)',
-    shadowLight: 'hsl(206 22% 7% / 35%)',
-    shadowDark: 'hsl(206 22% 7% / 20%)'
+    // base1: '$slate1',
+    // base2: '$slate2',
+    // base3: '$slate3',
+    // base4: '$slate4',
+    // base5: '$slate5',
+    // base6: '$slate6',
+    // base7: '$slate7',
+    // base8: '$slate8',
+    // base9: '$slate9',
+    // base10: '$slate10',
+    // base11: '$slate11',
+    // base12: '$slate12',
+    // hiContrast: '$slate12',
+    // loContrast: '$slate1',
+    // canvas: 'hsl(0 0% 15%)',
+    // panel: '$slate3',
+    // transparentPanel: 'hsl(0 100% 100% / 97%)',
+    // shadowLight: 'hsl(206 22% 7% / 35%)',
+    // shadowDark: 'hsl(206 22% 7% / 20%)'
   }
 })

@@ -1,33 +1,35 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { classed } from '@tw-classed/react'
 import { ElementRef, forwardRef, ComponentProps } from 'react'
 import { CheckIcon } from '@heroicons/react/24/solid'
+import { CSS, styled } from 'core/stitches.config'
 
-const ClassedCheckbox = classed(CheckboxPrimitive.Root, ' border', {
+const StyledCheckbox = styled(CheckboxPrimitive.Root, {
+  borderWidth: '$1',
   variants: {
     size: {
-      sm: 'w-4 h-4',
-      md: 'w-5 h-5'
+      1: {
+        size: '$8'
+      }
     }
   },
   defaultVariants: {
-    size: 'sm'
+    size: 1
   }
 })
-const ClassedIndicator = classed(CheckboxPrimitive.Indicator)
+const CheckboxIndicator = CheckboxPrimitive.Indicator
 
-type CheckboxProps = ComponentProps<typeof ClassedCheckbox>
+type SwitchProps = ComponentProps<typeof StyledCheckbox> & { css?: CSS }
 
 export const Checkbox = forwardRef<
-  ElementRef<typeof ClassedCheckbox>,
-  CheckboxProps
+  ElementRef<typeof StyledCheckbox>,
+  SwitchProps
 >((props, forwardRef) => {
   return (
-    <ClassedCheckbox ref={forwardRef} {...props}>
-      <ClassedIndicator>
+    <StyledCheckbox {...props} ref={forwardRef}>
+      <CheckboxIndicator asChild>
         <CheckIcon />
-      </ClassedIndicator>
-    </ClassedCheckbox>
+      </CheckboxIndicator>
+    </StyledCheckbox>
   )
 })
 
