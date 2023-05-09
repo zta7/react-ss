@@ -5,15 +5,27 @@ import { CSS, styled } from 'core/stitches.config'
 
 const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   borderWidth: '$1',
+  borderRadius: '$sizes$1',
+  borderColor: '$base10',
   variants: {
     size: {
       1: {
         size: '$8'
       }
+    },
+    color: {
+      primary: {
+        '&[data-state="checked"]': {
+          backgroundColor: '$primary9',
+          color: '$white',
+          borderWidth: '$0'
+        }
+      }
     }
   },
   defaultVariants: {
-    size: 1
+    size: 1,
+    color: 'primary'
   }
 })
 const CheckboxIndicator = CheckboxPrimitive.Indicator

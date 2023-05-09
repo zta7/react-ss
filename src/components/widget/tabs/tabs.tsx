@@ -1,7 +1,7 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs'
-import { classed } from '@tw-classed/react'
+import { styled } from 'core/stitches.config'
 
-export const Tabs = classed(TabsPrimitive.Root)
-export const TabsList = classed(TabsPrimitive.TabsList)
-export const TabsContent = classed(TabsPrimitive.TabsContent)
-export const TabsTrigger = classed(TabsPrimitive.TabsTrigger)
+export const Tabs = styled(TabsPrimitive.Root)
+export const TabsList = styled(TabsPrimitive.TabsList)
+export const TabsContent = styled(TabsPrimitive.TabsContent)
+export const TabsTrigger = styled(TabsPrimitive.TabsTrigger)

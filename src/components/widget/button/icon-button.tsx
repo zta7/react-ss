@@ -2,7 +2,6 @@ import { styled } from 'core/stitches.config'
 
 export const IconButton = styled('button', {
   color: '$hiContrast',
-  backgroundColor: '$loContrast',
   variants: {
     size: {
       '1': {

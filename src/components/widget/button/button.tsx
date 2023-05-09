@@ -1,25 +1,30 @@
 import { styled } from 'core/stitches.config'
 
 export const Button = styled('button', {
-  // padding: '$2 $4',
-  fontFamily: '$untitled',
-  fontWeight: 500,
   variants: {
-    square: {
-      true: {
-        borderRadius: '$0'
-      },
-      false: {
-        borderRadius: '$2'
-      }
-    },
     size: {
       '1': {
-        borderRadius: '$2',
-        height: '$8',
+        padding: '$1 $6',
+        borderRadius: '$2'
+        // height: '$8',
         // px: '$2',
         // fontSize: '$1',
-        lineHeight: '$sizes$8'
+        // lineHeight: '$sizes$8'
+      }
+    },
+    variant: {
+      outline: {
+        borderRadius: '$2',
+        borderWidth: '$1'
+      }
+    },
+    color: {
+      base: {
+        // '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
+        //   {
+        //     backgroundColor: '$base4',
+        //     boxShadow: 'inset 0 0 0 1px $colors$base8'
+        //   }
       }
     }
     // color: {
@@ -29,9 +34,29 @@ export const Button = styled('button', {
     // }
   },
   defaultVariants: {
-    square: false,
-    size: '1'
-  }
+    size: '1',
+    color: 'base',
+    variant: 'outline'
+  },
+  compoundVariants: [
+    {
+      variant: 'outline',
+      color: 'base',
+      css: {
+        backgroundColor: '$base2',
+        borderColor: '$base7',
+        // color: '$base12',
+        '@hover': {
+          '&:hover': {
+            borderColor: '$base8'
+          }
+        },
+        '&:active': {
+          backgroundColor: '$base4'
+        }
+      }
+    }
+  ]
 })
 
 Button.displayName = 'Button'

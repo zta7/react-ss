@@ -1,8 +1,6 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { styled, VariantProps, CSS } from 'core/stitches.config'
-import { forwardRef } from 'react'
-import { IconButton } from '../button'
-import { XMarkIcon } from '@heroicons/react/24/solid'
+import { styled, CSS } from 'core/stitches.config'
+import { forwardRef, useEffect, useState } from 'react'
 import { Card } from '../card'
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
@@ -38,14 +36,22 @@ type DialogContentProps = DialogContentPrimitiveProps & { css?: CSS }
 const DialogContent = forwardRef<
   React.ElementRef<typeof StyledContent>,
   DialogContentProps
->(({ children, ...props }, forwardedRef) => (
-  <DialogPrimitive.Portal>
-    <StyledOverlay />
-    <StyledContent {...props} ref={forwardedRef}>
-      {children}
-    </StyledContent>
-  </DialogPrimitive.Portal>
-))
+>(({ children, ...props }, forwardedRef) => {
+  const [container, setContainer] = useState(document.body)
+
+  useEffect(() => {
+    const el = document.getElementById('app')
+    el && setContainer(el)
+  }, [])
+  return (
+    <DialogPrimitive.Portal container={container}>
+      <StyledOverlay />
+      <StyledContent {...props} ref={forwardedRef}>
+        {children}
+      </StyledContent>
+    </DialogPrimitive.Portal>
+  )
+})
 
 DialogContent.displayName = 'DialogContent'
 

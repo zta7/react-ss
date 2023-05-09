@@ -20,52 +20,90 @@ import { DialogDescription } from 'components/widget/dialog'
 import { ThemeButton } from 'components/compose/ThemeButton'
 import { Card } from 'components/widget/card'
 import { Flex } from 'components/widget/flex'
+import { Grid } from 'components/widget/grid'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from 'components/widget/popover'
 
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
   return (
     <Box
+      id="app"
       css={{
+        display: 'grid',
+        gridTemplateAreas: `
+          "nav header header"
+          "nav main side"
+          "nav main side"`,
+        gridTemplateRows: '45px 1fr 30px',
+        gridTemplateColumns: '240px 1fr 30px',
         width: '100vw',
         height: '100vh',
         overflow: 'hidden',
         backgroundColor: '$base1',
-        color: '$base12'
+        color: '$base11'
       }}
     >
-      <Flex>
-        <Flex>
-          <Checkbox id="1" />
-          <Label htmlFor="1">123</Label>
-        </Flex>
+      <Flex css={{ gridArea: 'nav', backgroundColor: '$base3' }}>
+        <Box css={{ flexGrow: 1 }}>Box</Box>
         <Separator orientation="vertical" />
+      </Flex>
+      <Flex
+        css={{ gridArea: 'header', px: '$6' }}
+        justify="between"
+        align="center"
+      >
+        <Box>123</Box>
         <Flex>
-          <Checkbox id="2" />
-          <Label htmlFor="2">123</Label>
+          <ThemeButton />
         </Flex>
       </Flex>
-      <Tabs>
-        <TabsList>
-          <TabsTrigger value="1">1</TabsTrigger>
-          <TabsTrigger value="2">2</TabsTrigger>
-        </TabsList>
-        <TabsContent value="1">C</TabsContent>
-        <TabsContent value="2">DDDDDDD</TabsContent>
-      </Tabs>
-      <IconButton>
-        <BeakerIcon />
-      </IconButton>
-      <Switch />
-      <Dialog>
-        <DialogTrigger>Dialog Trigger</DialogTrigger>
-        <DialogContent>
-          <DialogTitle>Title</DialogTitle>
-          <DialogDescription>~~~</DialogDescription>
-        </DialogContent>
-      </Dialog>
-      <ThemeButton />
-      <Button>Button</Button>
+      <Box css={{ gridArea: 'main' }}>
+        <Flex>
+          <Flex>
+            <Checkbox id="1" />
+            <Label htmlFor="1">123</Label>
+          </Flex>
+          <Separator orientation="vertical" />
+          <Flex>
+            <Checkbox id="2" />
+            <Label htmlFor="2">123</Label>
+          </Flex>
+        </Flex>
+        <Tabs orientation="vertical">
+          <TabsList>
+            <TabsTrigger value="1">1</TabsTrigger>
+            <TabsTrigger value="2">2</TabsTrigger>
+          </TabsList>
+          <TabsContent value="1">C</TabsContent>
+          <TabsContent value="2">DDDDDDD</TabsContent>
+        </Tabs>
+        <IconButton>
+          <BeakerIcon />
+        </IconButton>
+        <Switch />
+        <Dialog>
+          <DialogTrigger>Dialog Trigger</DialogTrigger>
+          <DialogContent>
+            <DialogTitle>Title</DialogTitle>
+            <DialogDescription>~~~</DialogDescription>
+          </DialogContent>
+        </Dialog>
+        <Popover>
+          <PopoverTrigger>Popover Trigger</PopoverTrigger>
+          <PopoverContent>
+            <div>CCC</div>
+            {/* <DialogTitle>Title</DialogTitle>
+            <DialogDescription>~~~</DialogDescription> */}
+          </PopoverContent>
+        </Popover>
+        <Button>Button</Button>
+      </Box>
+      <Box css={{ gridArea: 'side' }}>Side</Box>
     </Box>
   )
 }

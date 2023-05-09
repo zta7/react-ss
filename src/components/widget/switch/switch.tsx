@@ -10,12 +10,8 @@ export const StyledThumb = styled(SwitchPrimitive.Thumb, {
 })
 
 export const StyledSwitch = styled(SwitchPrimitive.Root, {
-  backgroundColor: '$slate5',
+  backgroundColor: '$base7',
   position: 'relative',
-
-  '&[data-state="checked"]': {
-    backgroundColor: '$blue9'
-  },
 
   variants: {
     size: {
@@ -40,10 +36,18 @@ export const StyledSwitch = styled(SwitchPrimitive.Root, {
           }
         }
       }
+    },
+    color: {
+      primary: {
+        '&[data-state="checked"]': {
+          backgroundColor: '$primary9'
+        }
+      }
     }
   },
   defaultVariants: {
-    size: '1'
+    size: '1',
+    color: 'primary'
   }
 })
 
