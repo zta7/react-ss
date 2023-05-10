@@ -9,6 +9,12 @@ export const IconButton = styled('button', {
         height: '$16',
         width: '$16',
         p: '$sizes$2'
+      },
+      '2': {
+        borderRadius: '$1',
+        height: '$10',
+        width: '$10',
+        p: '$sizes$1'
       }
     },
     variant: {

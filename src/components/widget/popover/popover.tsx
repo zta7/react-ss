@@ -1,6 +1,12 @@
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import { styled, CSS } from 'core/stitches.config'
-import { ComponentProps, forwardRef, useEffect, useState } from 'react'
+import {
+  ComponentProps,
+  ElementRef,
+  forwardRef,
+  useEffect,
+  useState
+} from 'react'
 import { Card } from '../card'
 
 const Popover = PopoverPrimitive.Root
@@ -13,7 +19,7 @@ type PopoverContentProps = ComponentProps<typeof StyledContent> & {
 }
 
 const PopoverContent = forwardRef<
-  React.ElementRef<typeof StyledContent>,
+  ElementRef<typeof StyledContent>,
   PopoverContentProps
 >(({ children, ...props }, fowardedRef) => {
   const [container, setContainer] = useState(document.body)
@@ -26,7 +32,7 @@ const PopoverContent = forwardRef<
   return (
     <PopoverPrimitive.Portal container={container}>
       <StyledContent sideOffset={0} {...props} ref={fowardedRef}>
-        <Card>{children}</Card>
+        {children}
       </StyledContent>
     </PopoverPrimitive.Portal>
   )

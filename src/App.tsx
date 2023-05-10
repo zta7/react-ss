@@ -26,6 +26,19 @@ import {
   PopoverContent,
   PopoverTrigger
 } from 'components/widget/popover'
+import {
+  TooltipContent,
+  Tooltip,
+  TooltipTrigger
+} from 'components/widget/tooltip'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from 'components/widget/according/according'
+import { Item } from 'components/widget/item/item'
+import { Input } from 'components/widget/input'
 
 function App() {
   // const [ref, rect] = useMeasure()
@@ -41,15 +54,20 @@ function App() {
           "nav main side"`,
         gridTemplateRows: '45px 1fr 30px',
         gridTemplateColumns: '240px 1fr 30px',
+        userSelect: 'none',
         width: '100vw',
         height: '100vh',
         overflow: 'hidden',
         backgroundColor: '$base1',
-        color: '$base11'
+        color: '$base11',
+        fontSize: '0.85rem'
       }}
     >
-      <Flex css={{ gridArea: 'nav', backgroundColor: '$base3' }}>
-        <Box css={{ flexGrow: 1 }}>Box</Box>
+      <Flex css={{ gridArea: 'nav', backgroundColor: '$base1' }}>
+        <Box css={{ flexGrow: 1 }}>
+          <Item>123</Item>
+          <Item state={'active'}>123</Item>
+        </Box>
         <Separator orientation="vertical" />
       </Flex>
       <Flex
@@ -101,7 +119,20 @@ function App() {
             <DialogDescription>~~~</DialogDescription> */}
           </PopoverContent>
         </Popover>
+        <Tooltip>
+          <TooltipTrigger>TooltipTrigger</TooltipTrigger>
+          <TooltipContent>123</TooltipContent>
+        </Tooltip>
         <Button>Button</Button>
+        <Accordion type="multiple">
+          <AccordionItem value="1">
+            <AccordionTrigger>123</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Input />
       </Box>
       <Box css={{ gridArea: 'side' }}>Side</Box>
     </Box>

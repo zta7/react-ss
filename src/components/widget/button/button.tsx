@@ -1,6 +1,6 @@
 import { styled } from 'core/stitches.config'
 
-export const Button = styled('button', {
+const Button = styled('button', {
   variants: {
     size: {
       '1': {
@@ -16,6 +16,9 @@ export const Button = styled('button', {
       outline: {
         borderRadius: '$2',
         borderWidth: '$1'
+      },
+      flat: {
+        border: 'none'
       }
     },
     color: {
@@ -45,10 +48,25 @@ export const Button = styled('button', {
       css: {
         backgroundColor: '$base2',
         borderColor: '$base7',
-        // color: '$base12',
         '@hover': {
           '&:hover': {
+            backgroundColor: '$base3',
             borderColor: '$base8'
+          }
+        },
+        '&:active': {
+          backgroundColor: '$base4'
+        }
+      }
+    },
+    {
+      variant: 'flat',
+      color: 'base',
+      css: {
+        backgroundColor: '$base2',
+        '@hover': {
+          '&:hover': {
+            backgroundColor: '$base3'
           }
         },
         '&:active': {
@@ -59,4 +77,4 @@ export const Button = styled('button', {
   ]
 })
 
-Button.displayName = 'Button'
+export { Button }
