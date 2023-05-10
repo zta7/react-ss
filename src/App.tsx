@@ -39,7 +39,7 @@ import {
 } from 'components/widget/according/according'
 import { Item } from 'components/widget/item/item'
 import { Input } from 'components/widget/input'
-
+import { MoreButton } from 'components/compose/MoreButton'
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
@@ -78,6 +78,7 @@ function App() {
         <Box>123</Box>
         <Flex>
           <ThemeButton />
+          <MoreButton />
         </Flex>
       </Flex>
       <Box css={{ gridArea: 'main' }}>
@@ -132,7 +133,7 @@ function App() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        <Input />
+        <Input placeholder="hell" />
       </Box>
       <Box css={{ gridArea: 'side' }}>Side</Box>
     </Box>

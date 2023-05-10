@@ -22,19 +22,19 @@ const PopoverContent = forwardRef<
   ElementRef<typeof StyledContent>,
   PopoverContentProps
 >(({ children, ...props }, fowardedRef) => {
-  const [container, setContainer] = useState(document.body)
+  // const [container, setContainer] = useState(document.body)
 
-  useEffect(() => {
-    const el = document.getElementById('app')
-    el && setContainer(el)
-  }, [])
+  // useEffect(() => {
+  //   const el = document.getElementById('app')
+  //   el && setContainer(el)
+  // }, [])
 
   return (
-    <PopoverPrimitive.Portal container={container}>
-      <StyledContent sideOffset={0} {...props} ref={fowardedRef}>
-        {children}
-      </StyledContent>
-    </PopoverPrimitive.Portal>
+    // <PopoverPrimitive.Portal container={container}>
+    <StyledContent sideOffset={0} {...props} ref={fowardedRef}>
+      {children}
+    </StyledContent>
+    // </PopoverPrimitive.Portal>
   )
 })
 

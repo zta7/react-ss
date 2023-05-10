@@ -6,10 +6,6 @@ const Button = styled('button', {
       '1': {
         padding: '$1 $6',
         borderRadius: '$2'
-        // height: '$8',
-        // px: '$2',
-        // fontSize: '$1',
-        // lineHeight: '$sizes$8'
       }
     },
     variant: {

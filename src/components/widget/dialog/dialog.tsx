@@ -37,19 +37,13 @@ const DialogContent = forwardRef<
   React.ElementRef<typeof StyledContent>,
   DialogContentProps
 >(({ children, ...props }, forwardedRef) => {
-  const [container, setContainer] = useState(document.body)
-
-  useEffect(() => {
-    const el = document.getElementById('app')
-    el && setContainer(el)
-  }, [])
   return (
-    <DialogPrimitive.Portal container={container}>
+    <>
       <StyledOverlay />
       <StyledContent {...props} ref={forwardedRef}>
         {children}
       </StyledContent>
-    </DialogPrimitive.Portal>
+    </>
   )
 })
 
@@ -58,9 +52,11 @@ DialogContent.displayName = 'DialogContent'
 const Dialog = DialogPrimitive.Root
 const DialogTrigger = DialogPrimitive.Trigger
 const DialogClose = DialogPrimitive.Close
-const DialogTitle = DialogPrimitive.Title
-const DialogDescription = DialogPrimitive.Description
-
+const DialogTitle = styled(DialogPrimitive.Title, {
+  fontSize: '1rem',
+  color: '$base12'
+})
+const DialogDescription = DialogPrimitive.DialogDescription
 export {
   Dialog,
   DialogTrigger,
