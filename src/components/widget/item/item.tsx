@@ -10,21 +10,28 @@ export const Item = styled('div', {
   outline: 'none',
   '@hover': {
     '&:hover': {
-      backgroundColor: '$base5'
+      backgroundColor: '$base7'
     }
   },
   '&:active': {
-    backgroundColor: '$base4'
+    backgroundColor: '$base6'
   },
   '&:focus': {
-    backgroundColor: '$base4'
+    backgroundColor: '$base6'
   },
 
   variants: {
+    square: {
+      true: { borderRadius: 0 },
+      false: { borderRadius: '$2' }
+    },
     state: {
       active: {
         backgroundColor: '$base4'
       }
     }
+  },
+  defaultVariants: {
+    square: false
   }
 })

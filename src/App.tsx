@@ -45,7 +45,7 @@ function App() {
   const [b, setB] = useState()
   return (
     <Box
-      id="app"
+      className="app"
       css={{
         display: 'grid',
         gridTemplateAreas: `
@@ -87,7 +87,6 @@ function App() {
             <Checkbox id="1" />
             <Label htmlFor="1">123</Label>
           </Flex>
-          <Separator orientation="vertical" />
           <Flex>
             <Checkbox id="2" />
             <Label htmlFor="2">123</Label>
