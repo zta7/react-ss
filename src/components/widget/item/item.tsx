@@ -7,6 +7,7 @@ export const Item = styled('div', {
   flexWrap: 'nowrap',
   alignItems: 'center',
   padding: '$2 $3',
+  outline: 'none',
   '@hover': {
     '&:hover': {
       backgroundColor: '$base5'
@@ -15,6 +16,10 @@ export const Item = styled('div', {
   '&:active': {
     backgroundColor: '$base4'
   },
+  '&:focus': {
+    backgroundColor: '$base4'
+  },
+
   variants: {
     state: {
       active: {
