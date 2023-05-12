@@ -82,6 +82,10 @@ function App() {
         </Flex>
       </Flex>
       <Box css={{ gridArea: 'main' }}>
+        {/* <Grid>
+          <div style={{ width: 300 }}>1</div>
+          <div style={{ width: 300 }}>1</div>
+        </Grid> */}
         <Flex>
           <Flex>
             <Checkbox id="1" />

@@ -23,10 +23,7 @@ const DropdownMenuSubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
 })
 
 const DropdownMenuItem = styled(DropdownMenuPrimitive.Item, Item, {
-  mx: '$3',
-  '&:focus': {
-    outline: 'none'
-  }
+  mx: '$3'
 })
 
 const StyledDropdownMenuContent = styled(DropdownMenuPrimitive.Content, Card, {

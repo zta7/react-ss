@@ -1,5 +1,7 @@
 import { styled } from 'core/stitches.config'
 
+export const CardSection = styled('div', {})
+
 export const Card = styled('div', {
   backgroundColor: '$base3',
   variants: {
@@ -12,20 +14,23 @@ export const Card = styled('div', {
       }
     },
     shadow: {
-      none: {
+      0: {
         boxShadow: 'none'
       },
-      md: {
+      1: {
         boxShadow: `
-         $colors$blackA3 0px 0px 0px 1px, 
-         $colors$blackA5 0px 3px 6px, 
-         $colors$blackA8 0px 9px 24px;
+         $3 0px 0px 0px 1px, 
+         $5 0px 3px 6px, 
+         $8 0px 9px 24px;
         `
       }
     }
   },
+  [`& ${CardSection}`]: {
+    py: '$3'
+  },
   defaultVariants: {
     square: false,
-    shadow: 'md'
+    shadow: 1
   }
 })

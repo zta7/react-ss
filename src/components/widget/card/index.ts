@@ -1,1 +1,1 @@
-export { Card } from 'components/widget/card/card'
+export { Card, CardSection } from 'components/widget/card/card'

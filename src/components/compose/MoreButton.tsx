@@ -1,5 +1,9 @@
-import { EllipsisHorizontalIcon } from '@heroicons/react/24/solid'
+import {
+  EllipsisHorizontalIcon,
+  LockClosedIcon
+} from '@heroicons/react/24/solid'
 import { IconButton } from 'components/widget/button'
+import { ItemSection } from 'components/widget/item/item'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +16,8 @@ import {
   DropdownMenuSeparator
 } from 'components/widget/menu'
 import { Separator } from 'components/widget/separator'
+import { MdDownload, MdLockOutline } from 'react-icons/md'
+
 export const MoreButton = () => {
   return (
     <DropdownMenu>
@@ -22,8 +28,22 @@ export const MoreButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
-          <DropdownMenuItem>123</DropdownMenuItem>
-          <DropdownMenuItem>123</DropdownMenuItem>
+          {/* <DropdownMenuItem>
+            <ItemSection>
+              <div>123</div>
+            </ItemSection>
+            <ItemSection>
+              <div>123</div>
+            </ItemSection>
+            <ItemSection>
+              <div>123</div>
+            </ItemSection>
+          </DropdownMenuItem> */}
+          <DropdownMenuItem>
+            <MdDownload />
+            <div>label</div>
+            <div>label2</div>
+          </DropdownMenuItem>
           <DropdownMenuItem>123</DropdownMenuItem>
           <DropdownMenuItem>123</DropdownMenuItem>
           <DropdownMenuItem>123</DropdownMenuItem>
@@ -64,7 +84,9 @@ export const MoreButton = () => {
           <DropdownMenuItem>123</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>~~~~~</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>
+            <MdLockOutline />
+          </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuGroup>
               <DropdownMenuItem>123</DropdownMenuItem>

@@ -1,12 +1,12 @@
 import { styled } from 'core/stitches.config'
 
-// export const ItemSection = styled('div', {})
+export const ItemSection = styled('div')
 export const Item = styled('div', {
   display: 'flex',
   flexFlow: 'row',
   flexWrap: 'nowrap',
   alignItems: 'center',
-  padding: '$2 $3',
+  // padding: '$2 $3',
   outline: 'none',
   '@hover': {
     '&:hover': {
@@ -18,6 +18,20 @@ export const Item = styled('div', {
   },
   '&:focus': {
     backgroundColor: '$base6'
+    // outline: 'none'
+  },
+
+  [`&>${ItemSection}`]: {
+    '&:first-child': {
+      marginLeft: '$5',
+      marginRight: '$2'
+    },
+    // '&:nth-last-child(2)': {
+    //   marginRight: ''
+    // },
+    '&:last-child': {
+      marginRight: '$6'
+    }
   },
 
   variants: {
