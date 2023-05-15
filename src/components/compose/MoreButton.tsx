@@ -3,6 +3,7 @@ import {
   LockClosedIcon
 } from '@heroicons/react/24/solid'
 import { IconButton } from 'components/widget/button'
+import { Icon } from 'components/widget/icon'
 import { ItemSection } from 'components/widget/item/item'
 import {
   DropdownMenu,
@@ -40,9 +41,11 @@ export const MoreButton = () => {
             </ItemSection>
           </DropdownMenuItem> */}
           <DropdownMenuItem>
-            <MdDownload />
             <div>label</div>
             <div>label2</div>
+            <Icon>
+              <LockClosedIcon />
+            </Icon>
           </DropdownMenuItem>
           <DropdownMenuItem>123</DropdownMenuItem>
           <DropdownMenuItem>123</DropdownMenuItem>

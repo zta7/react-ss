@@ -19,9 +19,9 @@ export const Card = styled('div', {
       },
       1: {
         boxShadow: `
-         $3 0px 0px 0px 1px, 
-         $5 0px 3px 6px, 
-         $8 0px 9px 24px;
+         $colors$blackA3 0px 0px 0px 1px, 
+         $colors$blackA5 0px 3px 6px, 
+         $colors$blackA8 0px 9px 24px;
         `
       }
     }
