@@ -2,16 +2,13 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { styled, CSS } from 'core/stitches.config'
 import { Card } from '../card'
 import { ComponentProps, ElementRef, forwardRef } from 'react'
-import { Item } from '../item'
-import { Box } from '../box'
+import { Item, ItemGroup } from '../item'
 import { AppPortal } from 'components/widget/portal'
 
 const DropdownMenu = DropdownMenuPrimitive.Root
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 // const DropdownMenuItem = DropdownMenuPrimitive.Item
-const DropdownMenuGroup = styled(DropdownMenuPrimitive.Group, {
-  py: '$3'
-})
+const DropdownMenuGroup = styled(DropdownMenuPrimitive.Group, ItemGroup)
 const DropdownMenuLabel = DropdownMenuPrimitive.Label
 const DropdownMenuSeparator = DropdownMenuPrimitive.Separator
 const DropdownMenuCheckboxItem = DropdownMenuPrimitive.CheckboxItem

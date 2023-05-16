@@ -26,7 +26,7 @@ export const Card = styled('div', {
       }
     }
   },
-  [`& ${CardSection}`]: {
+  [`&>${CardSection}`]: {
     py: '$3'
   },
   defaultVariants: {

@@ -12,7 +12,7 @@ import {
 import { Text } from 'components/widget/text'
 // import { useMeasure } from 'hooks/use-measure'
 import { useState } from 'react'
-import { BeakerIcon, SunIcon } from '@heroicons/react/24/solid'
+import { BeakerIcon, LockClosedIcon, SunIcon } from '@heroicons/react/24/solid'
 import { Switch } from 'components/widget/switch'
 import { Dialog, DialogContent, DialogTrigger } from 'components/widget/dialog'
 import { DialogTitle } from 'components/widget/dialog'
@@ -40,6 +40,7 @@ import {
 import { Item } from 'components/widget/item/item'
 import { Input } from 'components/widget/input'
 import { MoreButton } from 'components/compose/MoreButton'
+import { Icon } from 'components/widget/icon'
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
@@ -87,6 +88,9 @@ function App() {
           <div style={{ width: 300 }}>1</div>
         </Grid> */}
         <Flex>
+          {/* <Icon>
+            <LockClosedIcon />
+          </Icon> */}
           <Flex>
             <Checkbox id="1" />
             <Label htmlFor="1">123</Label>

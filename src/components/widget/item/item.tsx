@@ -1,5 +1,6 @@
 import { styled } from 'core/stitches.config'
 
+export const ItemGroup = styled('div', { py: '$3' })
 export const ItemSection = styled('div')
 export const Item = styled('div', {
   display: 'flex',
@@ -21,18 +22,18 @@ export const Item = styled('div', {
     // outline: 'none'
   },
 
-  [`&>${ItemSection}`]: {
-    '&:first-child': {
-      marginLeft: '$5',
-      marginRight: '$2'
-    },
-    // '&:nth-last-child(2)': {
-    //   marginRight: ''
-    // },
-    '&:last-child': {
-      marginRight: '$6'
-    }
-  },
+  // [`&>${ItemSection}`]: {
+  //   '&:first-child': {
+  //     marginLeft: '$5',
+  //     marginRight: '$2'
+  //   },
+  //   // '&:nth-last-child(2)': {
+  //   //   marginRight: ''
+  //   // },
+  //   '&:last-child': {
+  //     marginRight: '$6'
+  //   }
+  // },
 
   variants: {
     square: {
