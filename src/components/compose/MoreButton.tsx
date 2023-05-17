@@ -41,8 +41,8 @@ export const MoreButton = () => {
             </ItemSection>
           </DropdownMenuItem> */}
           <DropdownMenuItem>
-            <div>label</div>
-            <div>label2</div>
+            <ItemSection>label</ItemSection>
+            <ItemSection>label2</ItemSection>
             <Icon>
               <LockClosedIcon />
             </Icon>
