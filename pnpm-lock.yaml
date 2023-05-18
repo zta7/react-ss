@@ -103,6 +103,9 @@ dependencies:
   tailwindcss-themer:
     specifier: ^3.0.1
     version: registry.npmmirror.com/tailwindcss-themer@3.0.1(tailwindcss@3.3.1)
+  zustand:
+    specifier: ^4.3.8
+    version: registry.npmmirror.com/zustand@4.3.8(react@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -6253,4 +6256,34 @@ packages:
       detect-node-es: registry.npmmirror.com/detect-node-es@1.1.0
       react: 18.2.0
       tslib: registry.npmmirror.com/tslib@2.5.0
+    dev: false
+
+  registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz}
+    id: registry.npmmirror.com/use-sync-external-store/1.2.0
+    name: use-sync-external-store
+    version: 1.2.0
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  registry.npmmirror.com/zustand@4.3.8(react@18.2.0):
+    resolution: {integrity: sha512-4h28KCkHg5ii/wcFFJ5Fp+k1J3gJoasaIbppdgZFO4BPJnsNxL0mQXBSFgOgAdCdBj35aDTPvdAJReTMntFPGg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/zustand/-/zustand-4.3.8.tgz}
+    id: registry.npmmirror.com/zustand/4.3.8
+    name: zustand
+    version: 4.3.8
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0)
     dev: false

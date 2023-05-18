@@ -42,6 +42,7 @@ import { Input } from 'components/widget/input'
 import { MoreButton } from 'components/compose/MoreButton'
 import { Icon } from 'components/widget/icon'
 import { ProgressBar } from 'components/widget/progress'
+import { Toasts } from 'components/widget/toast/toasts'
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
@@ -143,6 +144,7 @@ function App() {
         </Accordion>
         <Input placeholder="hell" />
         <ProgressBar />
+        <Toasts />
       </Box>
       <Box css={{ gridArea: 'side' }}>Side</Box>
 
