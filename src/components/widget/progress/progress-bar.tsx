@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 const ProgressRoot = styled(Progress.Root, {
   position: 'relative',
   overflow: 'hidden',
-  background: '$base7',
+  backgroundColor: '$base6',
   borderRadius: '99999px',
   width: 300,
   height: 25,

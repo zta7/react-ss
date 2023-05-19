@@ -2,6 +2,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { styled, CSS } from 'core/stitches.config'
 import { forwardRef, useEffect, useState } from 'react'
 import { Card } from '../card'
+import { AppPortal } from 'components/widget/portal'
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
   backgroundColor: '$colors$blackA10',
@@ -38,12 +39,12 @@ const DialogContent = forwardRef<
   DialogContentProps
 >(({ children, ...props }, forwardedRef) => {
   return (
-    <>
+    <AppPortal>
       <StyledOverlay />
       <StyledContent {...props} ref={forwardedRef}>
         {children}
       </StyledContent>
-    </>
+    </AppPortal>
   )
 })
 
