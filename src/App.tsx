@@ -12,7 +12,12 @@ import {
 import { Text } from 'components/widget/text'
 // import { useMeasure } from 'hooks/use-measure'
 import { useState } from 'react'
-import { BeakerIcon, LockClosedIcon, SunIcon } from '@heroicons/react/24/solid'
+import {
+  BeakerIcon,
+  EyeIcon,
+  LockClosedIcon,
+  SunIcon
+} from '@heroicons/react/24/solid'
 import { Switch } from 'components/widget/switch'
 import { Dialog, DialogContent, DialogTrigger } from 'components/widget/dialog'
 import { DialogTitle } from 'components/widget/dialog'
@@ -37,11 +42,13 @@ import {
   AccordionItem,
   AccordionTrigger
 } from 'components/widget/according/according'
-import { Item } from 'components/widget/item/item'
+import { Item, ItemGroup, ItemSection } from 'components/widget/item/item'
 import { Input } from 'components/widget/input'
 import { MoreButton } from 'components/compose/MoreButton'
 import { Icon } from 'components/widget/icon'
 import { ProgressBar } from 'components/widget/progress'
+import { ScrollArea } from 'components/widget/scrollarea'
+import { FaIcons } from 'react-icons/fa'
 function App() {
   // const [ref, rect] = useMeasure()
   const [b, setB] = useState()
@@ -136,13 +143,35 @@ function App() {
         <Accordion type="multiple">
           <AccordionItem value="1">
             <AccordionTrigger>123</AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="text-h1">
               Yes. It adheres to the WAI-ARIA design pattern.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
         <Input placeholder="hell" />
         <ProgressBar />
+        <ScrollArea css={{ width: 200, height: 200 }}>
+          <div style={{ height: 400, width: 400 }}>
+            111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </div>
+        </ScrollArea>
+        <ItemGroup className="w-[200px]">
+          <Item>
+            <ItemSection variant="side">
+              <FaIcons />
+            </ItemSection>
+            <ItemSection>Hi</ItemSection>
+            <ItemSection variant="side">side</ItemSection>
+          </Item>
+          <Item>
+            <ItemSection>1</ItemSection>
+            <ItemSection>2</ItemSection>
+          </Item>
+          <Item state="active">
+            <ItemSection>1</ItemSection>
+            <ItemSection>2</ItemSection>
+          </Item>
+        </ItemGroup>
       </Box>
       <Box css={{ gridArea: 'side' }}>Side</Box>
 

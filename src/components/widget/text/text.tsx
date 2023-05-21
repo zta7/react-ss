@@ -1,14 +1,10 @@
-import { styled } from 'core/stitches.config'
+import { classed } from 'core/classed.config'
 
-export const Text = styled('span', {
-  // variants: {
-  //   size: {
-  //     sm: 'text-sm',
-  //     md: 'text-base',
-  //     lg: 'text-lg'
-  //   }
-  // },
-  // defaultVariants: {
-  //   size: 'sm'
-  // }
+export const Text = classed.div({
+  variants: {
+    // caption: ''
+  },
+  defaultVariants: {
+    // size: 'sm'
+  }
 })
