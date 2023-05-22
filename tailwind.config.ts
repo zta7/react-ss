@@ -41,75 +41,38 @@ export default {
         base9: 'var(--base9)',
         base10: 'var(--base10)',
         base11: 'var(--base11)',
-        base12: 'var(--base12)'
+        base12: 'var(--base12)',
 
-        // border: 'hsl(var(--border))',
-        // input: 'hsl(var(--input))',
-        // ring: 'hsl(var(--ring))',
-        // background: 'hsl(var(--background))',
-        // foreground: 'hsl(var(--foreground))',
-        // primary: {
-        //   DEFAULT: 'hsl(var(--primary))',
-        //   foreground: 'hsl(var(--primary-foreground))'
-        // },
-        // secondary: {
-        //   DEFAULT: 'hsl(var(--secondary))',
-        //   foreground: 'hsl(var(--secondary-foreground))'
-        // },
-        // destructive: {
-        //   DEFAULT: 'hsl(var(--destructive))',
-        //   foreground: 'hsl(var(--destructive-foreground))'
-        // },
-        // muted: {
-        //   DEFAULT: 'hsl(var(--muted))',
-        //   foreground: 'hsl(var(--muted-foreground))'
-        // },
-        // accent: {
-        //   DEFAULT: 'hsl(var(--accent))',
-        //   foreground: 'hsl(var(--accent-foreground))'
-        // },
-        // popover: {
-        //   DEFAULT: 'hsl(var(--popover))',
-        //   foreground: 'hsl(var(--popover-foreground))'
-        // },
-        // card: {
-        //   DEFAULT: 'hsl(var(--card))',
-        //   foreground: 'hsl(var(--card-foreground))'
-        // }
+        primary1: 'var(--primary1)',
+        primary2: 'var(--primary2)',
+        primary3: 'var(--primary3)',
+        primary4: 'var(--primary4)',
+        primary5: 'var(--primary5)',
+        primary6: 'var(--primary6)',
+        primary7: 'var(--primary7)',
+        primary8: 'var(--primary8)',
+        primary9: 'var(--primary9)',
+        primary10: 'var(--primary10)',
+        primary11: 'var(--primary11)',
+        primary12: 'var(--primary12)',
+
+        ring: 'var(--ring)'
       }
-      // text: {
-      //   caption: ''
-      // },
-      // borderRadius: {
-      //   lg: `var(--radius)`,
-      //   md: `calc(var(--radius) - 2px)`,
-      //   sm: 'calc(var(--radius) - 4px)'
-      // },
-      // fontFamily: {
-      //   sans: ['var(--font-sans)', ...fontFamily.sans]
-      // },
-      // keyframes: {
-      //   'accordion-down': {
-      //     from: { height: 0 },
-      //     to: { height: 'var(--radix-accordion-content-height)' }
-      //   },
-      //   'accordion-up': {
-      //     from: { height: 'var(--radix-accordion-content-height)' },
-      //     to: { height: 0 }
-      //   }
-      // },
-      // animation: {
-      //   'accordion-down': 'accordion-down 0.2s ease-out',
-      //   'accordion-up': 'accordion-up 0.2s ease-out'
-      // }
     }
   },
   plugins: [
     require('tailwindcss-animate'),
     plugin(function ({ addUtilities, theme }) {
       addUtilities({
-        '.text-h1': {
-          fontSize: theme('fontSize.2xl')
+        '.text-caption': {
+          fontSize: theme('fontSize.sm'),
+          fontWeight: theme('fontWeight.normal'),
+          letterSpacing: theme('letterSpacing.wider')
+        },
+        '.text-overline': {
+          fontSize: theme('fontSize.sm'),
+          fontWeight: theme('fontWeight.medium'),
+          letterSpacing: theme('letterSpacing.widest')
         }
       })
     })

@@ -1,1 +1,1 @@
-export { Item, ItemGroup } from './item'
+export { Item, ItemGroup, ItemLabel } from './item'

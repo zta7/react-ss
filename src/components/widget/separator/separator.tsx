@@ -1,22 +1,15 @@
-import { styled } from 'core/stitches.config'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
+import { classed } from 'core/classed.config'
 
-export const Separator = styled(
+export const Separator = classed(
   SeparatorPrimitive.Root,
-  // 'cursor-default shrink-0 bg-base-600',
+  'cursor-default shrink-0 bg-base4',
   {
-    backgroundColor: '$base4',
-
     variants: {
       size: {
-        1: {
-          '&[data-orientation=horizontal]': { height: 1, width: '100%' },
-          '&[data-orientation=vertical]': {
-            height: 'auto',
-            width: 1,
-            alignSelf: 'stretch'
-          }
-        }
+        1: `
+          data-[orientation=horizontal]:h-[1px] data-[orientation=horizontal]:w-[100%] 
+          data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-[1px] data-[orientation=vertical]:self-stretch`
       }
     },
     defaultVariants: {

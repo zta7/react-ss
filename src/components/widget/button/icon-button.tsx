@@ -23,21 +23,21 @@ export const IconButton = styled('button', {
         borderWidth: '0',
         '@hover': {
           '&:hover': {
-            backgroundColor: '$baseA3'
+            backgroundColor: 'bg-base7'
           }
         },
         '&:active': {
-          backgroundColor: '$baseA5'
+          backgroundColor: 'bg-base6'
         },
         '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
           {
-            backgroundColor: '$baseA5'
+            backgroundColor: 'bg-base6'
           }
       }
     },
     state: {
       active: {
-        backgroundColor: '$base4',
+        backgroundColor: 'bg-base4',
         boxShadow: 'inset 0 0 0 1px hsl(206,10%,76%)',
         '@hover': {
           '&:hover': {
@@ -45,7 +45,7 @@ export const IconButton = styled('button', {
           }
         },
         '&:active': {
-          backgroundColor: '$base4'
+          backgroundColor: 'bg-base4'
         }
       }
     }

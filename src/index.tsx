@@ -9,6 +9,5 @@ const root = createRoot(container)
 root.render(
   <GlobalProvider>
     <App />
-    <div>123</div>
   </GlobalProvider>
 )

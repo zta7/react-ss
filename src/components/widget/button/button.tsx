@@ -1,76 +1,58 @@
-import { styled } from 'core/stitches.config'
+import { classed } from 'core/classed.config'
 
-const Button = styled('button', {
-  variants: {
-    size: {
-      '1': {
-        padding: '$1 $6',
-        borderRadius: '$2'
-      }
-    },
-    variant: {
-      outline: {
-        borderRadius: '$2',
-        borderWidth: '$1'
-      },
+const Button = classed.button(
+  'inline-flex font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-2 ring-offset-1',
+  {
+    variants: {
       flat: {
-        border: 'none'
+        true: 'border-none'
+      },
+      size: {
+        1: 'px-3 py-1 rounded text-base'
+      },
+      variant: {
+        outline: 'border',
+        solid: 'border-none text-white'
+      },
+      color: {
+        base: '',
+        primary: ''
+      },
+      state: {
+        disabled: 'opacity-50 pointer-events-none'
       }
     },
-    color: {
-      base: {
-        // '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
-        //   {
-        //     backgroundColor: '$base4',
-        //     boxShadow: 'inset 0 0 0 1px $colors$base8'
-        //   }
-      }
-    }
-    // color: {
-    //   base: 'hover:enabled:bg-base-200 [&:active:enabled:not(:has(button:active))]:bg-base-300',
-    //   deeper:
-    //     'hover:enabled:bg-base-300 [&:active:enabled:not(:has(button:active))]:bg-base-400'
-    // }
-  },
-  defaultVariants: {
-    size: '1',
-    color: 'base',
-    variant: 'outline'
-  },
-  compoundVariants: [
-    {
-      variant: 'outline',
-      color: 'base',
-      css: {
-        backgroundColor: '$base2',
-        borderColor: '$base7',
-        '@hover': {
-          '&:hover': {
-            backgroundColor: '$base3',
-            borderColor: '$base8'
-          }
-        },
-        '&:active': {
-          backgroundColor: '$base4'
-        }
-      }
+    defaultVariants: {
+      size: 1,
+      color: 'primary',
+      variant: 'outline'
     },
-    {
-      variant: 'flat',
-      color: 'base',
-      css: {
-        backgroundColor: '$base2',
-        '@hover': {
-          '&:hover': {
-            backgroundColor: '$base3'
-          }
-        },
-        '&:active': {
-          backgroundColor: '$base4'
-        }
+    compoundVariants: [
+      {
+        variant: 'outline',
+        color: 'base',
+        className: `border-base6 bg-base3
+          hover:border-base8 focus:border-base7 hover:bg-base4 active:bg-base5`
+      },
+      {
+        variant: 'solid',
+        color: 'base',
+        className: `bg-base9 hover:bg-base10`
+      },
+
+      {
+        variant: 'outline',
+        color: 'primary',
+        className: `border-primary6 bg-primary3
+          hover:border-primary8 focus:border-primary7 hover:bg-primary4 active:bg-primary5`
+      },
+      {
+        variant: 'solid',
+        color: 'primary',
+        className: `bg-primary9 hover:bg-primary10`
       }
-    }
-  ]
-})
+    ]
+  }
+)
 
 export { Button }

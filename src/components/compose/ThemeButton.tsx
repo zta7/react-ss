@@ -4,18 +4,17 @@ import { darkTheme } from 'core/stitches.config'
 import { useState, useEffect } from 'react'
 
 export const ThemeButton = () => {
-  const [theme, setTheme] = useState('theme-default')
+  const [theme, setTheme] = useState('default')
   const html = document.querySelector('html') as HTMLHtmlElement
   useEffect(() => {
-    html.classList.remove('theme-default', darkTheme)
+    // html.classList.remove('theme-default', darkTheme)
+    html.className = ''
     html.classList.add(theme)
-  }, [html.classList, theme])
+  }, [html, html.classList, theme])
 
   return (
     <IconButton
-      onClick={() =>
-        setTheme(theme === 'theme-default' ? darkTheme : 'theme-default')
-      }
+      onClick={() => setTheme(theme === 'default' ? 'dark' : 'default')}
     >
       <SunIcon />
     </IconButton>

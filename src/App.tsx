@@ -42,7 +42,12 @@ import {
   AccordionItem,
   AccordionTrigger
 } from 'components/widget/according/according'
-import { Item, ItemGroup, ItemSection } from 'components/widget/item/item'
+import {
+  Item,
+  ItemGroup,
+  ItemLabel,
+  ItemSection
+} from 'components/widget/item/item'
 import { Input } from 'components/widget/input'
 import { MoreButton } from 'components/compose/MoreButton'
 import { Icon } from 'components/widget/icon'
@@ -66,10 +71,7 @@ function App() {
         userSelect: 'none',
         width: '100vw',
         height: '100vh',
-        overflow: 'hidden',
-        backgroundColor: '$base1',
-        color: '$base11',
-        fontSize: '0.85rem'
+        overflow: 'hidden'
       }}
     >
       <Flex css={{ gridArea: 'nav', backgroundColor: '$base1' }}>
@@ -84,7 +86,7 @@ function App() {
         justify="between"
         align="center"
       >
-        <Box>123</Box>
+        {/* <Box>123</Box> */}
         <Flex>
           <ThemeButton />
           <MoreButton />
@@ -140,6 +142,15 @@ function App() {
           <TooltipContent>123</TooltipContent>
         </Tooltip>
         <Button>Button</Button>
+        <Button variant="solid">Button</Button>
+        <Button variant="solid" state="disabled" flat>
+          Button Flat
+        </Button>
+
+        <Button color="base" flat>
+          Button
+        </Button>
+
         <Accordion type="multiple">
           <AccordionItem value="1">
             <AccordionTrigger>123</AccordionTrigger>
@@ -156,18 +167,18 @@ function App() {
           </div>
         </ScrollArea>
         <ItemGroup className="w-[200px]">
-          <Item>
+          <Item square tabIndex={0}>
             <ItemSection variant="side">
               <FaIcons />
             </ItemSection>
             <ItemSection>Hi</ItemSection>
             <ItemSection variant="side">side</ItemSection>
           </Item>
-          <Item>
+          <Item aria-selected flat square tabIndex={0}>
             <ItemSection>1</ItemSection>
             <ItemSection>2</ItemSection>
           </Item>
-          <Item state="active">
+          <Item aria-disabled square tabIndex={0}>
             <ItemSection>1</ItemSection>
             <ItemSection>2</ItemSection>
           </Item>
